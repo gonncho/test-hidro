@@ -61,6 +61,7 @@ h1 {
   margin: 8px 0 6px;
 }
 .resumen { margin: 0; color: var(--muted); font-size: .95rem; }
+.resumen:empty { display: none; }
 
 /* ---------- Modos ---------- */
 .modo { padding: 22px 0; border-bottom: 1px solid var(--rule); }
@@ -95,6 +96,21 @@ h1 {
 .stepper input::-webkit-outer-spin-button,
 .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .stepper input:focus { outline: none; background: var(--paper); }
+
+.desplegable { position: relative; flex: 1; min-width: 180px; }
+.desplegable::after {
+  content: ""; position: absolute; right: 16px; top: 50%;
+  width: 8px; height: 8px; margin-top: -6px;
+  border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);
+  transform: rotate(45deg); pointer-events: none;
+}
+.desplegable select {
+  width: 100%; min-height: 44px; padding: 10px 40px 10px 14px;
+  font: 500 1rem var(--sans); color: var(--ink);
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: 6px;
+  -webkit-appearance: none; appearance: none; cursor: pointer;
+}
+.desplegable select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ---------- Botones ---------- */
 button {

@@ -157,19 +157,21 @@ function abrirVisor(src) {
 // ---------- Menú ----------
 function iniciarMenu() {
   const total = todasLasPreguntas().length;
-  $("resumen").textContent = `${total} preguntas · ${COMPANEROS.length} compañeros`;
+  $("resumen").textContent = "";
   $("txt-todas").textContent = `${total} preguntas en orden aleatorio`;
 
-  const lista = $("lista-companeros");
-  lista.innerHTML = "";
-  for (const c of COMPANEROS) {
-    const b = document.createElement("button");
-    b.className = "companero";
-    b.innerHTML = `<span>${nombreCorto(c)}</span><span class="cuenta">${c.preguntas.length}</span>`;
-    b.onclick = () =>
-      empezar(c.preguntas.map((p, i) => ({ ...p, autor: nombreCorto(c), num: i + 1 })), true);
-    lista.appendChild(b);
-  }
+  const sel = $("sel-companero");
+  sel.innerHTML = "";
+  COMPANEROS.forEach((c, i) => {
+    const o = document.createElement("option");
+    o.value = i;
+    o.textContent = `${nombreCorto(c)} (${c.preguntas.length} preguntas)`;
+    sel.appendChild(o);
+  });
+  $("btn-companero").onclick = () => {
+    const c = COMPANEROS[+sel.value];
+    empezar(c.preguntas.map((p, i) => ({ ...p, autor: nombreCorto(c), num: i + 1 })), true);
+  };
 
   const num = $("num-aleatorias");
   num.max = total;

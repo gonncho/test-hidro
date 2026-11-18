@@ -8,7 +8,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Test Hidro">
   <title>Test Hidrometeorología</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
   <main id="app">
@@ -25,7 +25,12 @@
           <span class="num">1</span>
           <h2>Por compañero</h2>
         </div>
-        <div id="lista-companeros" class="companeros"></div>
+        <div class="fila">
+          <div class="desplegable">
+            <select id="sel-companero" aria-label="Compañero"></select>
+          </div>
+          <button id="btn-companero" class="primario">Empezar</button>
+        </div>
       </section>
 
       <section class="modo">
@@ -91,7 +96,7 @@
 
   <div id="visor" class="visor oculto"><img alt=""></div>
 
-  <script src="data/lista.js?v=3"></script>
-  <script src="app.js?v=3"></script>
+  <script src="data/lista.js?v=4"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
