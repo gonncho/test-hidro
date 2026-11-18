@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Test Hidrometeorología</title>
+  <meta name="theme-color" content="#1f6fb2">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Test Hidro">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Hidrometeorología y riesgos climáticos</h1>
+    <p class="sub">Práctica del examen tipo test</p>
+  </header>
+
+  <main id="app">
+    <!-- Menú -->
+    <section id="menu" class="pantalla">
+      <p id="resumen" class="resumen"></p>
+
+      <div class="tarjeta">
+        <h2>Preguntas de un compañero</h2>
+        <div class="fila">
+          <select id="sel-companero"></select>
+          <button id="btn-companero">Empezar</button>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <h2>Preguntas aleatorias</h2>
+        <div class="fila">
+          <label for="num-aleatorias">Número de preguntas</label>
+          <input id="num-aleatorias" type="number" inputmode="numeric" min="1" value="10">
+          <button id="btn-aleatorias">Empezar</button>
+        </div>
+      </div>
+
+      <div class="tarjeta">
+        <h2>Todas las preguntas</h2>
+        <div class="fila">
+          <span id="txt-todas"></span>
+          <button id="btn-todas">Empezar</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pregunta -->
+    <section id="quiz" class="pantalla oculto">
+      <div class="barra-sup">
+        <button id="btn-salir" class="secundario">← Menú</button>
+        <span id="progreso"></span>
+        <span id="marcador"></span>
+      </div>
+      <div class="barra-progreso"><div id="barra"></div></div>
+      <p id="autor" class="autor"></p>
+      <div id="enunciado" class="enunciado"></div>
+      <div id="imagenes" class="imagenes"></div>
+      <ol id="opciones" class="opciones" type="a"></ol>
+      <div class="acciones">
+        <button id="btn-siguiente" class="oculto">Siguiente →</button>
+      </div>
+    </section>
+
+    <!-- Resultados -->
+    <section id="resultado" class="pantalla oculto">
+      <h2 id="nota"></h2>
+      <p id="nota-detalle"></p>
+      <div class="fila centro">
+        <button id="btn-repetir-fallos">Repetir las falladas</button>
+        <button id="btn-repetir">Repetir el mismo test</button>
+        <button id="btn-menu" class="secundario">Volver al menú</button>
+      </div>
+      <div id="revision"></div>
+    </section>
+  </main>
+
+  <div id="visor" class="visor oculto"><img alt=""></div>
+
+  <script src="data/lista.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
