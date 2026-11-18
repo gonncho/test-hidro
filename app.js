@@ -218,7 +218,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 // ---------- Arranque ----------
-Promise.all(LISTA_COMPANEROS.map((id) => cargarScript(`data/${id}.js`)))
+Promise.all(LISTA_COMPANEROS.map((id) => cargarScript(`data/${id}.js?t=${Date.now()}`)))
   .then(() => {
     // Mantener el orden de LISTA_COMPANEROS
     COMPANEROS.sort((a, b) => LISTA_COMPANEROS.indexOf(a.id) - LISTA_COMPANEROS.indexOf(b.id));
