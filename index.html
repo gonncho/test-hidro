@@ -3,74 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Test Hidrometeorología</title>
-  <meta name="theme-color" content="#1f6fb2">
+  <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Test Hidro">
+  <title>Test Hidrometeorología</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Hidrometeorología y riesgos climáticos</h1>
-    <p class="sub">Práctica del examen tipo test</p>
-  </header>
-
   <main id="app">
     <!-- Menú -->
     <section id="menu" class="pantalla">
-      <p id="resumen" class="resumen"></p>
+      <header class="cabecera">
+        <p class="asignatura">Hidrometeorología y riesgos climáticos</p>
+        <h1>Test del bloque&nbsp;1</h1>
+        <p id="resumen" class="resumen"></p>
+      </header>
 
-      <div class="tarjeta">
-        <h2>Preguntas de un compañero</h2>
-        <div class="fila">
-          <select id="sel-companero"></select>
-          <button id="btn-companero">Empezar</button>
+      <section class="modo">
+        <div class="modo-tit">
+          <span class="num">1</span>
+          <h2>Por compañero</h2>
         </div>
-      </div>
+        <div id="lista-companeros" class="companeros"></div>
+      </section>
 
-      <div class="tarjeta">
-        <h2>Preguntas aleatorias</h2>
-        <div class="fila">
-          <label for="num-aleatorias">Número de preguntas</label>
-          <input id="num-aleatorias" type="number" inputmode="numeric" min="1" value="10">
-          <button id="btn-aleatorias">Empezar</button>
+      <section class="modo">
+        <div class="modo-tit">
+          <span class="num">2</span>
+          <h2>Aleatorias</h2>
         </div>
-      </div>
+        <div class="fila">
+          <div class="stepper" role="group" aria-label="Número de preguntas">
+            <button type="button" id="menos" aria-label="Menos">−</button>
+            <input id="num-aleatorias" type="number" inputmode="numeric" min="1" value="10" aria-label="Número de preguntas">
+            <button type="button" id="mas" aria-label="Más">+</button>
+          </div>
+          <span class="nota-peq">preguntas</span>
+          <button id="btn-aleatorias" class="primario">Empezar</button>
+        </div>
+      </section>
 
-      <div class="tarjeta">
-        <h2>Todas las preguntas</h2>
-        <div class="fila">
-          <span id="txt-todas"></span>
-          <button id="btn-todas">Empezar</button>
+      <section class="modo">
+        <div class="modo-tit">
+          <span class="num">3</span>
+          <h2>Todas</h2>
         </div>
-      </div>
+        <div class="fila">
+          <span id="txt-todas" class="nota-peq"></span>
+          <button id="btn-todas" class="primario">Empezar</button>
+        </div>
+      </section>
     </section>
 
     <!-- Pregunta -->
     <section id="quiz" class="pantalla oculto">
       <div class="barra-sup">
-        <button id="btn-salir" class="secundario">← Menú</button>
-        <span id="progreso"></span>
-        <span id="marcador"></span>
+        <button id="btn-salir" class="enlace">Salir</button>
+        <span id="progreso" class="mono"></span>
+        <span id="marcador" class="mono"></span>
       </div>
       <div class="barra-progreso"><div id="barra"></div></div>
       <p id="autor" class="autor"></p>
       <div id="enunciado" class="enunciado"></div>
       <div id="imagenes" class="imagenes"></div>
-      <ol id="opciones" class="opciones" type="a"></ol>
+      <ol id="opciones" class="opciones"></ol>
       <div class="acciones">
-        <button id="btn-siguiente" class="oculto">Siguiente →</button>
+        <button id="btn-siguiente" class="primario oculto">Siguiente</button>
       </div>
     </section>
 
     <!-- Resultados -->
     <section id="resultado" class="pantalla oculto">
-      <h2 id="nota"></h2>
-      <p id="nota-detalle"></p>
-      <div class="fila centro">
-        <button id="btn-repetir-fallos">Repetir las falladas</button>
-        <button id="btn-repetir">Repetir el mismo test</button>
-        <button id="btn-menu" class="secundario">Volver al menú</button>
+      <header class="cabecera">
+        <p class="asignatura">Resultado</p>
+        <p id="nota" class="nota"></p>
+        <p id="nota-detalle" class="resumen"></p>
+      </header>
+      <div class="botones-res">
+        <button id="btn-repetir-fallos" class="primario">Repetir las falladas</button>
+        <button id="btn-repetir" class="secundario">Repetir el mismo test</button>
+        <button id="btn-menu" class="enlace">Volver al menú</button>
       </div>
       <div id="revision"></div>
     </section>
